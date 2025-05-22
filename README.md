@@ -90,7 +90,7 @@ Accessible à [http://localhost:8501](http://localhost:8501)
 
 ## ✅ Auteurs et contributions
 
-Réalisé par [Yassin](https://github.com/yassin006) dans le cadre du module 4DDEV.  
+Réalisé par [Yassine/Leo/Marouan](https://github.com/yassin006) dans le cadre du module 4DDEV.  
 Projet noté sur l'intégration complète d'un pipeline de données.
 
 ---
