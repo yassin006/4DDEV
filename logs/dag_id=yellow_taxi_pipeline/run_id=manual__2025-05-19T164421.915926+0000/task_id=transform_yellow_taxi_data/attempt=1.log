@@ -1,0 +1,21 @@
+[2025-05-19T16:44:24.495+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: yellow_taxi_pipeline.transform_yellow_taxi_data manual__2025-05-19T16:44:21.915926+00:00 [queued]>
+[2025-05-19T16:44:24.503+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: yellow_taxi_pipeline.transform_yellow_taxi_data manual__2025-05-19T16:44:21.915926+00:00 [queued]>
+[2025-05-19T16:44:24.504+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-05-19T16:44:24.515+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): transform_yellow_taxi_data> on 2025-05-19 16:44:21.915926+00:00
+[2025-05-19T16:44:24.518+0000] {standard_task_runner.py:60} INFO - Started process 181 to run task
+[2025-05-19T16:44:24.521+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'yellow_taxi_pipeline', 'transform_yellow_taxi_data', 'manual__2025-05-19T16:44:21.915926+00:00', '--job-id', '12', '--raw', '--subdir', 'DAGS_FOLDER/taxi_ingestion_dag.py', '--cfg-path', '/tmp/tmp5tzie8cb']
+[2025-05-19T16:44:24.523+0000] {standard_task_runner.py:88} INFO - Job 12: Subtask transform_yellow_taxi_data
+[2025-05-19T16:44:24.536+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-05-19T16:44:24.561+0000] {task_command.py:423} INFO - Running <TaskInstance: yellow_taxi_pipeline.transform_yellow_taxi_data manual__2025-05-19T16:44:21.915926+00:00 [running]> on host b73b752192bf
+[2025-05-19T16:44:24.626+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='yellow_taxi_pipeline' AIRFLOW_CTX_TASK_ID='transform_yellow_taxi_data' AIRFLOW_CTX_EXECUTION_DATE='2025-05-19T16:44:21.915926+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-19T16:44:21.915926+00:00'
+[2025-05-19T16:44:24.627+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-05-19T16:44:24.628+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'PYTHONPATH=/opt/*** python /opt/***/scripts/run_transform_taxi.py']
+[2025-05-19T16:44:24.634+0000] {subprocess.py:86} INFO - Output:
+[2025-05-19T16:44:27.340+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2025-05-19T16:44:27.341+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2025-05-19T16:44:27.530+0000] {subprocess.py:93} INFO - 25/05/19 16:44:27 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-05-19T16:44:28.784+0000] {subprocess.py:93} INFO - ❌ Le fichier data/raw/yellow_taxi/yellow_tripdata_2024-01.parquet n'existe pas.
+[2025-05-19T16:44:29.230+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-05-19T16:44:29.253+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=yellow_taxi_pipeline, task_id=transform_yellow_taxi_data, execution_date=20250519T164421, start_date=20250519T164424, end_date=20250519T164429
+[2025-05-19T16:44:29.267+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-05-19T16:44:29.280+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

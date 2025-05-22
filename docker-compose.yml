@@ -1,0 +1,98 @@
+version: '3.7'
+
+services:
+  postgres:
+    image: postgres:13
+    container_name: postgres
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    volumes:
+      - postgres-db-volume:/var/lib/postgresql/data
+    networks:
+      - airflow-net
+
+  airflow-init:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - postgres
+    environment:
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__CORE__STORE_SERIALIZED_DAGS=False
+      - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
+      - AIRFLOW__WEBSERVER__SECRET_KEY=my_ultra_secret_key
+      - PYTHONPATH=/opt/airflow/streaming:/opt/airflow/scripts:/opt/airflow/ingestion:/opt/airflow/transformations:/opt/airflow/dags
+    entrypoint: >
+      /bin/bash -c "
+      airflow db init &&
+      airflow users create --username admin --firstname admin --lastname admin --role Admin --email admin@example.com --password admin
+      "
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./ingestion:/opt/airflow/ingestion
+      - ./transformations:/opt/airflow/transformations
+      - ./scripts:/opt/airflow/scripts
+      - ./streaming:/opt/airflow/streaming
+      - ./data:/opt/airflow/data
+      - ./logs:/opt/airflow/logs
+    networks:
+      - airflow-net
+
+  webserver:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - airflow-init
+    ports:
+      - "8080:8080"
+    environment:
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__CORE__STORE_SERIALIZED_DAGS=False
+      - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
+      - AIRFLOW__WEBSERVER__SECRET_KEY=my_ultra_secret_key
+      - PYTHONPATH=/opt/airflow/streaming:/opt/airflow/scripts:/opt/airflow/ingestion:/opt/airflow/transformations:/opt/airflow/dags
+    command: webserver
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./ingestion:/opt/airflow/ingestion
+      - ./transformations:/opt/airflow/transformations
+      - ./scripts:/opt/airflow/scripts
+      - ./streaming:/opt/airflow/streaming
+      - ./data:/opt/airflow/data
+      - ./logs:/opt/airflow/logs
+    networks:
+      - airflow-net
+
+  scheduler:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - webserver
+    environment:
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__CORE__STORE_SERIALIZED_DAGS=False
+      - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
+      - AIRFLOW__WEBSERVER__SECRET_KEY=my_ultra_secret_key
+      - PYTHONPATH=/opt/airflow/streaming:/opt/airflow/scripts:/opt/airflow/ingestion:/opt/airflow/transformations:/opt/airflow/dags
+    command: scheduler
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./ingestion:/opt/airflow/ingestion
+      - ./transformations:/opt/airflow/transformations
+      - ./scripts:/opt/airflow/scripts
+      - ./streaming:/opt/airflow/streaming
+      - ./data:/opt/airflow/data
+      - ./logs:/opt/airflow/logs
+    networks:
+      - airflow-net
+
+volumes:
+  postgres-db-volume:
+
+networks:
+  airflow-net:

@@ -1,0 +1,29 @@
+[2025-05-14T02:50:28.502+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: yellow_taxi_pipeline.transform_yellow_taxi_data manual__2025-05-14T02:50:25.101522+00:00 [queued]>
+[2025-05-14T02:50:28.509+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: yellow_taxi_pipeline.transform_yellow_taxi_data manual__2025-05-14T02:50:25.101522+00:00 [queued]>
+[2025-05-14T02:50:28.509+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-05-14T02:50:28.522+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): transform_yellow_taxi_data> on 2025-05-14 02:50:25.101522+00:00
+[2025-05-14T02:50:28.525+0000] {standard_task_runner.py:60} INFO - Started process 176 to run task
+[2025-05-14T02:50:28.528+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'yellow_taxi_pipeline', 'transform_yellow_taxi_data', 'manual__2025-05-14T02:50:25.101522+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/taxi_ingestion_dag.py', '--cfg-path', '/tmp/tmpft17pknz']
+[2025-05-14T02:50:28.529+0000] {standard_task_runner.py:88} INFO - Job 3: Subtask transform_yellow_taxi_data
+[2025-05-14T02:50:28.545+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-05-14T02:50:28.574+0000] {task_command.py:423} INFO - Running <TaskInstance: yellow_taxi_pipeline.transform_yellow_taxi_data manual__2025-05-14T02:50:25.101522+00:00 [running]> on host f8fc2d802061
+[2025-05-14T02:50:28.635+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='yellow_taxi_pipeline' AIRFLOW_CTX_TASK_ID='transform_yellow_taxi_data' AIRFLOW_CTX_EXECUTION_DATE='2025-05-14T02:50:25.101522+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-14T02:50:25.101522+00:00'
+[2025-05-14T02:50:28.637+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-05-14T02:50:28.638+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/scripts/run_transform_taxi.py']
+[2025-05-14T02:50:28.644+0000] {subprocess.py:86} INFO - Output:
+[2025-05-14T02:50:28.672+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-05-14T02:50:28.673+0000] {subprocess.py:93} INFO -   File "/opt/***/scripts/run_transform_taxi.py", line 1, in <module>
+[2025-05-14T02:50:28.674+0000] {subprocess.py:93} INFO -     from transformations.transform_taxi import transform_yellow_taxi_data
+[2025-05-14T02:50:28.674+0000] {subprocess.py:93} INFO - ModuleNotFoundError: No module named 'transformations'
+[2025-05-14T02:50:28.676+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2025-05-14T02:50:28.684+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/bash.py", line 212, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-05-14T02:50:28.687+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=yellow_taxi_pipeline, task_id=transform_yellow_taxi_data, execution_date=20250514T025025, start_date=20250514T025028, end_date=20250514T025028
+[2025-05-14T02:50:28.697+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 3 for task transform_yellow_taxi_data (Bash command failed. The command returned a non-zero exit code 1.; 176)
+[2025-05-14T02:50:28.740+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-05-14T02:50:28.752+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check
