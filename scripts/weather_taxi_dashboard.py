@@ -2,6 +2,7 @@ import streamlit as st
 import duckdb
 import pandas as pd
 import pydeck as pdk
+import plotly.graph_objects as go
 
 st.set_page_config(page_title="Dashboard Météo & Taxis", layout="wide")
 st.title("🚖🌦️ Dashboard Météo & Trajets Taxi")
@@ -79,12 +80,36 @@ else:
         st.bar_chart(df_taxi.set_index("pickup_hour")["trip_count"])
 
         if not df_joined.empty:
-            st.subheader("📈 Température vs Trafic taxi")
-            st.line_chart(df_joined.set_index("pickup_hour")[["temp", "trip_count"]])
-        else:
-            st.warning("⚠️ Aucune heure commune entre météo et taxi. Pas de graphe combiné.")
+            st.subheader("📈 Température vs Trafic taxi (double axe)")
 
-import pydeck as pdk
+            fig = go.Figure()
+
+            fig.add_trace(go.Scatter(
+                x=df_joined["pickup_hour"],
+                y=df_joined["temp"],
+                name="Température (°C)",
+                mode='lines',
+                yaxis="y1"
+            ))
+
+            fig.add_trace(go.Scatter(
+                x=df_joined["pickup_hour"],
+                y=df_joined["trip_count"],
+                name="Nombre de trajets",
+                mode='lines',
+                yaxis="y2"
+            ))
+
+            fig.update_layout(
+                xaxis=dict(title="Heure"),
+                yaxis=dict(title="Température (°C)", side="left"),
+                yaxis2=dict(title="Trajets", overlaying="y", side="right"),
+                legend=dict(x=0, y=1.1, orientation="h")
+            )
+
+            st.plotly_chart(fig, use_container_width=True)
+        else:
+            st.warning("⚠️ Aucune heure commune entre météo et taxi.")
 
 # Vérification préalable : df_weather et taxi_map doivent être bien formatés
 if not df_weather.empty and "lat" in df_weather.columns and "lon" in df_weather.columns:
