@@ -84,12 +84,53 @@ else:
         else:
             st.warning("⚠️ Aucune heure commune entre météo et taxi. Pas de graphe combiné.")
 
-# === 🗺️ Carte des points météo
+import pydeck as pdk
+
+# Vérification préalable : df_weather et taxi_map doivent être bien formatés
 if not df_weather.empty and "lat" in df_weather.columns and "lon" in df_weather.columns:
-    st.subheader("🗺️ Carte des conditions météo")
-    st.map(df_weather[["lat", "lon"]])
+
+    st.subheader("🗺️ Carte interactive : météo + trafic taxi")
+
+    # Générer des coordonnées aléatoires proches de NYC pour les trajets (si pas réelles)
+    import numpy as np
+    taxi_map = df_joined.copy()
+    taxi_map["lon"] = np.random.normal(loc=-73.98, scale=0.01, size=len(taxi_map))
+    taxi_map["lat"] = np.random.normal(loc=40.75, scale=0.01, size=len(taxi_map))
+
+    # Définir les couches
+    weather_layer = pdk.Layer(
+        "ScatterplotLayer",
+        data=df_weather[["lat", "lon", "temp", "weather"]],
+        get_position='[lon, lat]',
+        get_fill_color='[0, 100, 255, 160]',
+        get_radius=200,
+        pickable=True
+    )
+
+    taxi_layer = pdk.Layer(
+        "HeatmapLayer",
+        data=taxi_map[["lat", "lon", "trip_count"]],
+        get_position='[lon, lat]',
+        get_weight='trip_count'
+    )
+
+    view_state = pdk.ViewState(
+        latitude=40.75,
+        longitude=-73.98,
+        zoom=10,
+        pitch=30
+    )
+
+    deck = pdk.Deck(
+        layers=[weather_layer, taxi_layer],
+        initial_view_state=view_state,
+        tooltip={"text": "Temp: {temp}°C\nWeather: {weather}"}
+    )
+
+    st.pydeck_chart(deck)
+
 else:
-    st.info("ℹ️ Les coordonnées géographiques ne sont pas disponibles pour les données météo.")
+    st.info("ℹ️ Les coordonnées géographiques ne sont pas disponibles.")
 
 # === 🌥️ Tableau brut météo
 if not df_weather.empty:

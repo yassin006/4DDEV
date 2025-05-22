@@ -6187,3 +6187,51 @@ File Path                                  PID  Runtime      # DAGs    # Errors 
 /opt/airflow/dags/weather_stream_dag.py   1733  0.00s             1           0  0.12s           2025-05-22T17:31:07
 ================================================================================
 [2025-05-22T17:31:50.600+0000] {manager.py:451} INFO - Exiting gracefully upon receiving signal 15
+[2025-05-22T20:48:23.847+0000] {manager.py:469} INFO - Processing files using up to 2 processes at a time 
+[2025-05-22T20:48:23.849+0000] {manager.py:470} INFO - Process each file at most once every 30 seconds
+[2025-05-22T20:48:23.850+0000] {manager.py:471} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2025-05-22T20:48:23.851+0000] {manager.py:738} INFO - Searching for files in /opt/airflow/dags
+[2025-05-22T20:48:23.950+0000] {manager.py:741} INFO - There are 2 files in /opt/airflow/dags
+[2025-05-22T20:48:24.093+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                  PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  ----------
+/opt/airflow/dags/taxi_ingestion_dag.py    166  0.07s             0           0
+/opt/airflow/dags/weather_stream_dag.py    169  0.06s             0           0
+================================================================================
+[2025-05-22T20:48:54.343+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                  PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/taxi_ingestion_dag.py    179  0.01s             1           0  0.16s           2025-05-22T20:48:24
+/opt/airflow/dags/weather_stream_dag.py    182  0.00s             1           0  0.17s           2025-05-22T20:48:24
+================================================================================
+[2025-05-22T20:48:56.715+0000] {manager.py:451} INFO - Exiting gracefully upon receiving signal 15
+[2025-05-22T20:53:42.161+0000] {manager.py:469} INFO - Processing files using up to 2 processes at a time 
+[2025-05-22T20:53:42.167+0000] {manager.py:470} INFO - Process each file at most once every 30 seconds
+[2025-05-22T20:53:42.167+0000] {manager.py:471} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2025-05-22T20:53:42.168+0000] {manager.py:738} INFO - Searching for files in /opt/airflow/dags
+[2025-05-22T20:53:42.216+0000] {manager.py:741} INFO - There are 2 files in /opt/airflow/dags
+[2025-05-22T20:53:42.312+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                  PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  ----------
+/opt/airflow/dags/taxi_ingestion_dag.py    168  0.05s             0           0
+/opt/airflow/dags/weather_stream_dag.py    171  0.04s             0           0
+================================================================================
+[2025-05-22T20:54:12.564+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                  PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/taxi_ingestion_dag.py    364  0.02s             1           0  0.11s           2025-05-22T20:53:42
+/opt/airflow/dags/weather_stream_dag.py    365  0.01s             1           0  0.12s           2025-05-22T20:53:42
+================================================================================
+[2025-05-22T20:54:12.963+0000] {manager.py:451} INFO - Exiting gracefully upon receiving signal 15

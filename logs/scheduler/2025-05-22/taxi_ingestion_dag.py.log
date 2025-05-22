@@ -2608,3 +2608,31 @@
 [2025-05-22T17:31:38.036+0000] {logging_mixin.py:188} INFO - [2025-05-22T17:31:38.035+0000] {dag.py:3036} INFO - Sync 1 DAGs
 [2025-05-22T17:31:38.048+0000] {logging_mixin.py:188} INFO - [2025-05-22T17:31:38.048+0000] {dag.py:3823} INFO - Setting next_dagrun for yellow_taxi_pipeline to None, run_after=None
 [2025-05-22T17:31:38.068+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/taxi_ingestion_dag.py took 0.091 seconds
+[2025-05-22T20:48:24.044+0000] {processor.py:161} INFO - Started process (PID=166) to work on /opt/airflow/dags/taxi_ingestion_dag.py
+[2025-05-22T20:48:24.047+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/taxi_ingestion_dag.py for tasks to queue
+[2025-05-22T20:48:24.048+0000] {logging_mixin.py:188} INFO - [2025-05-22T20:48:24.048+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/taxi_ingestion_dag.py
+[2025-05-22T20:48:24.082+0000] {processor.py:840} INFO - DAG(s) 'yellow_taxi_pipeline' retrieved from /opt/airflow/dags/taxi_ingestion_dag.py
+[2025-05-22T20:48:24.124+0000] {logging_mixin.py:188} INFO - [2025-05-22T20:48:24.124+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-05-22T20:48:24.147+0000] {logging_mixin.py:188} INFO - [2025-05-22T20:48:24.147+0000] {dag.py:3823} INFO - Setting next_dagrun for yellow_taxi_pipeline to None, run_after=None
+[2025-05-22T20:48:24.175+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/taxi_ingestion_dag.py took 0.135 seconds
+[2025-05-22T20:48:54.347+0000] {processor.py:161} INFO - Started process (PID=179) to work on /opt/airflow/dags/taxi_ingestion_dag.py
+[2025-05-22T20:48:54.349+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/taxi_ingestion_dag.py for tasks to queue
+[2025-05-22T20:48:54.350+0000] {logging_mixin.py:188} INFO - [2025-05-22T20:48:54.349+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/taxi_ingestion_dag.py
+[2025-05-22T20:48:54.374+0000] {processor.py:840} INFO - DAG(s) 'yellow_taxi_pipeline' retrieved from /opt/airflow/dags/taxi_ingestion_dag.py
+[2025-05-22T20:48:54.577+0000] {logging_mixin.py:188} INFO - [2025-05-22T20:48:54.577+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-05-22T20:48:54.586+0000] {logging_mixin.py:188} INFO - [2025-05-22T20:48:54.586+0000] {dag.py:3823} INFO - Setting next_dagrun for yellow_taxi_pipeline to None, run_after=None
+[2025-05-22T20:48:54.604+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/taxi_ingestion_dag.py took 0.261 seconds
+[2025-05-22T20:53:42.283+0000] {processor.py:161} INFO - Started process (PID=168) to work on /opt/airflow/dags/taxi_ingestion_dag.py
+[2025-05-22T20:53:42.284+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/taxi_ingestion_dag.py for tasks to queue
+[2025-05-22T20:53:42.285+0000] {logging_mixin.py:188} INFO - [2025-05-22T20:53:42.285+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/taxi_ingestion_dag.py
+[2025-05-22T20:53:42.313+0000] {processor.py:840} INFO - DAG(s) 'yellow_taxi_pipeline' retrieved from /opt/airflow/dags/taxi_ingestion_dag.py
+[2025-05-22T20:53:42.341+0000] {logging_mixin.py:188} INFO - [2025-05-22T20:53:42.341+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-05-22T20:53:42.355+0000] {logging_mixin.py:188} INFO - [2025-05-22T20:53:42.355+0000] {dag.py:3823} INFO - Setting next_dagrun for yellow_taxi_pipeline to None, run_after=None
+[2025-05-22T20:53:42.373+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/taxi_ingestion_dag.py took 0.094 seconds
+[2025-05-22T20:54:12.567+0000] {processor.py:161} INFO - Started process (PID=364) to work on /opt/airflow/dags/taxi_ingestion_dag.py
+[2025-05-22T20:54:12.568+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/taxi_ingestion_dag.py for tasks to queue
+[2025-05-22T20:54:12.569+0000] {logging_mixin.py:188} INFO - [2025-05-22T20:54:12.569+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/taxi_ingestion_dag.py
+[2025-05-22T20:54:12.606+0000] {processor.py:840} INFO - DAG(s) 'yellow_taxi_pipeline' retrieved from /opt/airflow/dags/taxi_ingestion_dag.py
+[2025-05-22T20:54:12.875+0000] {logging_mixin.py:188} INFO - [2025-05-22T20:54:12.875+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-05-22T20:54:12.889+0000] {logging_mixin.py:188} INFO - [2025-05-22T20:54:12.889+0000] {dag.py:3823} INFO - Setting next_dagrun for yellow_taxi_pipeline to None, run_after=None
+[2025-05-22T20:54:12.914+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/taxi_ingestion_dag.py took 0.352 seconds
