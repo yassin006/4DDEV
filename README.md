@@ -97,6 +97,8 @@ Projet noté sur l'intégration complète d'un pipeline de données.
 
 ## 🔭 Améliorations futures
 
-- Intégration de **MinIO** comme data lake
 - Utilisation de **dbt** pour la modélisation analytique
 - Enrichissement temps réel avec Kafka/Flink
+- Intégration de données trafic en temps réel
+- Prédiction météo-taxi via modèle ML
+- Déploiement cloud avec scalabilité automatique
