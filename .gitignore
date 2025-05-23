@@ -1,0 +1,39 @@
+# Ignorer l'environnement virtuel
+venv/
+.venv/
+
+# Fichiers de log
+*.log
+
+# Caches Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Fichiers Jupyter et IPython
+.ipynb_checkpoints/
+.profile
+.pytest_cache/
+.mypy_cache/
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Config VSCode ou autres éditeurs
+.vscode/
+.idea/
+
+# Airflow
+logs/
+*.pid
+
+# Données locales
+data/processed/
+data/temp/
+
+# Fichiers DuckDB ou autres DB locales
+*.duckdb
+
+# Streamlit
+.streamlit/
